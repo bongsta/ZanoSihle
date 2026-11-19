@@ -1,0 +1,42 @@
+# 14 Alex Kota Kitchen — Docker website
+
+## Run locally with Docker
+
+1. Open a terminal in this folder.
+2. Build the image:
+
+   ```bash
+   docker build -t kota-kitchen .
+   ```
+
+3. Start the container:
+
+   ```bash
+   docker run -d --name kota-kitchen-site -p 8080:80 kota-kitchen
+   ```
+
+4. Open http://localhost:8080 in your browser.
+
+## Useful Docker commands
+
+- See running containers: `docker ps`
+- See logs: `docker logs kota-kitchen-site`
+- Stop: `docker stop kota-kitchen-site`
+- Start again: `docker start kota-kitchen-site`
+- Remove container (after stopping): `docker rm kota-kitchen-site`
+
+If port 8080 is already in use, change the run command to `-p 8081:80` and open http://localhost:8081.
+
+## Customize
+
+Edit `index.html` to change the menu, prices, business details, colors, or text. Then rebuild:
+
+```bash
+docker build -t kota-kitchen .
+```
+
+To replace the existing container, stop and remove it first, then run the `docker run` command again.
+
+## Important
+
+This is a front-end demonstration. The cart works in the browser, but checkout does not submit orders, accept payments, or send notifications. Menu prices are sample prices and should be confirmed before publishing. The location is shown exactly as supplied: "14 Alex".
